@@ -68,9 +68,17 @@ document.addEventListener("DOMContentLoaded", function () {
 var nav = document.querySelector(".fixed-nav-bar")
 
 if (nav) {
+  var themeId = localStorage.getItem("theme")
+  var LogoUrl = "/assets/media/favicon/main.png"
+  var LogoUrl
+  if (themeId === "Inverted") {
+    LogoUrl = "/assets/media/favicon/main-inverted.png"
+  } else {
+    LogoUrl = LogoUrl
+  }
   var html = `
     <div class="fixed-nav-bar-container">
-      <a class="icon" href="/./"><img alt="nav" id="INImg" src="/assets/media/favicon/main.png"/></a>
+      <a class="icon" href="/./"><img alt="nav" id="INImg" src="${LogoUrl}"/></a>
     </div>
     <div class="fixed-nav-bar-right">
       <a class="navbar-link" href="/./gm"><i class="fa-solid fa-gamepad navbar-icon"></i><an>Ga</an><an>mes</an></a>
@@ -87,25 +95,28 @@ var themeid = localStorage.getItem("theme")
 themeEle = document.createElement("link")
 themeEle.rel = "stylesheet"
 if (themeid == "catppuccinMocha") {
-  themeEle.href = "/assets/styles/themes/catppuccin/mocha.css?v=1"
+  themeEle.href = "/assets/css/themes/catppuccin/mocha.css?v=1"
   document.body.appendChild(themeEle)
 }
 if (themeid == "catppuccinMacchiato") {
-  themeEle.href = "/assets/styles/themes/catppuccin/macchiato.css?v=1"
+  themeEle.href = "/assets/css/themes/catppuccin/macchiato.css?v=1"
   document.body.appendChild(themeEle)
 }
 if (themeid == "catppuccinFrappe") {
-  themeEle.href = "/assets/styles/themes/catppuccin/frappe.css?v=1"
+  themeEle.href = "/assets/css/themes/catppuccin/frappe.css?v=1"
   document.body.appendChild(themeEle)
 }
 if (themeid == "catppuccinLatte") {
-  themeEle.href = "/assets/styles/themes/catppuccin/latte.css?v=1"
+  themeEle.href = "/assets/css/themes/catppuccin/latte.css?v=1"
   document.body.appendChild(themeEle)
 }
-else {
-  var customThemeEle = document.createElement("style");
-  customThemeEle.textContent = localStorage.getItem("theme-"+themeid);
-  document.head.appendChild(customThemeEle);
+if (themeid == "Inverted") {
+  themeEle.href = "/assets/css/themes/colors/inverted.css?v=2"
+  document.body.appendChild(themeEle)
+} else {
+  var customThemeEle = document.createElement("style")
+  customThemeEle.textContent = localStorage.getItem("theme-" + themeid)
+  document.head.appendChild(customThemeEle)
 }
 // Tab Cloaker
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -153,6 +164,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     Gmail: { name: "Gmail", icon: "/assets/media/favicon/gmail.png" },
     Clever: { name: "Clever | Portal", icon: "/assets/media/favicon/clever.png" },
     Khan: { name: "Dashboard | Khan Academy", icon: "/assets/media/favicon/khan.png" },
+    Dictionary: { name: "Dictionary.com | Meanings & Definitions of English Words", icon: "/assets/media/favicon/dictionary.png" },
+    Thesaurus: { name: "Synonyms and Antonyms of Words | Thesaurus.com", icon: "/assets/media/favicon/thesaurus.png" },
     Campus: { name: "Infinite Campus", icon: "/assets/media/favicon/campus.png" },
     IXL: { name: "IXL | Dashboard", icon: "/assets/media/favicon/ixl.png" },
     Canvas: { name: "Dashboard", icon: "/assets/media/favicon/canvas.png" },

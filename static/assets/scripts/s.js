@@ -280,6 +280,7 @@ function newCustomTheme() {
     themeName == "catppuccinMacchiato" ||
     themeName == "catppuccinFrappe" ||
     themeName == "catppuccinLatte" ||
+    themeName == "Inverted" ||
     themeName == "d"
   ) {
     alert("This theme name cannot be used.")
@@ -346,7 +347,14 @@ if (themeId == "") {
   themeId = "d"
 }
 
-if (themeId == "catppuccinMocha" || themeId == "catppuccinMacchiato" || themeId == "catppuccinFrappe" || themeId == "catppuccinLatte" || themeId == "d") {
+if (
+  themeId == "catppuccinMocha" ||
+  themeId == "catppuccinMacchiato" ||
+  themeId == "catppuccinFrappe" ||
+  themeId == "catppuccinLatte" ||
+  themeId == "d" ||
+  themeId == "Inverted"
+) {
   document.getElementById("currentThemeText").textContent = "Selected Theme: Default Themes"
   document.getElementById("et").disabled = true
   document.getElementById("ext").disabled = true
@@ -490,6 +498,11 @@ function getRandomURL() {
     "https://slides.google.com",
     "https://www.nasa.gov",
     "https://blooket.com",
+    "https://clever.com",
+    "https://edpuzzle.com",
+    "https://khanacademy.org",
+    "https://wikipedia.org",
+    "https://dictionary.com",
   ]
   return randomURLS[randRange(0, randomURLS.length)]
 }
